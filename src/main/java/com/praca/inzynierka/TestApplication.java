@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
@@ -25,7 +27,7 @@ public class TestApplication {
 		AtomicInteger i = new AtomicInteger(1);
 		return args -> Stream.of("Math quiz", "Other quiz", "IT quiz", "Better quiz").forEach(title -> {
 			Quiz quiz = new Quiz(title, title + " description of quiz description of quiz description of quiz description of quiz description of quiz description of quiz description of quiz description of quiz"
-			, new Date(), new Date(), "shiba" + i.getAndIncrement());
+			, LocalDateTime.now(), LocalDateTime.now(), "shiba" + i.getAndIncrement());
 			quizRepository.save(quiz);
 		});
 	}

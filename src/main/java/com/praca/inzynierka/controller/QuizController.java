@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("*")
+//@CrossOrigin("*")
 @RestController
 public class QuizController {
 
@@ -21,6 +21,7 @@ public class QuizController {
         return quizService.getQuiz();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/quiz/{id}")
     public Quiz getQuiz(@PathVariable long id) {
         return quizService.getQuizById(id);

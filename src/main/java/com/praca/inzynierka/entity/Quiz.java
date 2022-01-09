@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -21,8 +21,8 @@ public class Quiz {
     private String description;
     //@ManyToOne
     //private Student participants;
-    private Date startDate;
-    private Date endDate;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private String image;
 
     public Quiz() {
@@ -32,12 +32,12 @@ public class Quiz {
         this.title = title;
         this.description = description;
 //        this.participants = null;
-        this.startDate = new Date();
-        this.endDate = new Date();
+        this.startDate = LocalDateTime.now();
+        this.endDate = LocalDateTime.now();
         this.image = "";
     }
 
-    public Quiz(String title, String description/*Student participants*/, Date startDate, Date endDate, String image) {
+    public Quiz(String title, String description/*Student participants*/, LocalDateTime startDate, LocalDateTime endDate, String image) {
         this.title = title;
         this.description = description;
 //        this.participants = participants;
